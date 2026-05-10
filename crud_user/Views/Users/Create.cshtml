@@ -1,0 +1,44 @@
+﻿@model User
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3>Create User</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <form method="post" action="/Users/Store">
+
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input class="form-control" name="Name" type="text"/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input class="form-control" name="Email" type="email" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Score</label>
+                            <input class="form-control" name="Score" type="number"/>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">
+                            Create User
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

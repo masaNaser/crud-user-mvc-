@@ -1,0 +1,42 @@
+﻿@model User
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3>Create User</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <form method="post" action="/Users/Update">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input class="form-control" name="Name" type="text" value="@Model.Name" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input class="form-control" name="Email" type="email" value="@Model.Email" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Score</label>
+                            <input class="form-control" name="Score" type="number" value="@Model.Score" />
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">
+                            Edit User
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -3,7 +3,11 @@
     Layout = "_mainLayout";
 }
 <div class="container mt-5">
-
+    @section heading {
+        <div class="card-header text-center">
+            <h3 class="mt-3">Create User</h3>
+        </div>
+    }
 
     @if (!Model.Any())
     {

@@ -8,43 +8,45 @@ namespace crud_user.Controllers
     public class UsersController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
-        public IActionResult Index()
+        public ActionResult Index()
         {
             List<User> users = context.Users.ToList();
             return View("Index",users);
         }
-        public IActionResult Create()
+        public ActionResult Create()
         {
             return View("Create");
         }
 
-        public IActionResult Store(User requset) {
-         
+        public ActionResult Store(User requset) {
+            if (!ModelState.IsValid)
+            {
+                return View("Create", requset);
+            }
             context.Users.Add(requset);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-        public IActionResult Edit(int id)
+        public ActionResult Edit(int id)
         {
             User user = context.Users.Find(id);
             return View("Edit", user);
         }
-        public IActionResult Update(User requset)
+        public ActionResult Update(User requset)
         {
             User user = context.Users.Find(requset.Id);
             user.Name = requset.Name;
-            user.Email = requset.Email;
-            user.Score = requset.Score;
+            user.City = requset.City;
             context.Users.Update(user);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-        public IActionResult Delete(int id)
-        {
-            User user = context.Users.Find(id);
-            context.Users.Remove(user);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+        public ActionResult Delete(int id)
+        {            
+                User user = context.Users.Find(id);
+                context.Users.Remove(user);
+                context.SaveChanges();
+                return RedirectToAction("Index");
         }
 
     }

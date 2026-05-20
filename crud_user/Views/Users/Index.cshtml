@@ -1,10 +1,9 @@
 ﻿@model List<User>
-
+@{
+    Layout = "_mainLayout";
+}
 <div class="container mt-5">
 
-    <a href="/Users/Create" class="btn btn-primary mb-3">
-        Create New User
-    </a>
 
     @if (!Model.Any())
     {
@@ -20,11 +19,11 @@
                     <h5 class="card-title">@user.Name</h5>
 
                     <p class="card-text">
-                        <strong>Email:</strong> @user.Email
+                        <strong>Email:</strong> @user.City
                     </p>
 
                     <p class="card-text">
-                        <strong>Score:</strong> @user.Score
+                        <strong>Score:</strong> @user.Age
                     </p>
                     <div>
                         <a href="/Users/Edit/@user.Id" class="btn btn-warning">Edit</a>

@@ -1,5 +1,7 @@
 ﻿@model User
-
+@{
+    Layout = "_mainLayout";
+}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -11,21 +13,27 @@
 
                 <div class="card-body">
 
-                    <form method="post" action="/Users/Store">
+                    <form method="post" asp-controller="Users" asp-action="Store">
 
                         <div class="mb-3">
-                            <label class="form-label">Name</label>
-                            <input class="form-control" name="Name" type="text"/>
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input class="form-control" name="Email" type="email" />
+                            <label asp-for="City" class="form-label"></label>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Score</label>
-                            <input class="form-control" name="Score" type="number"/>
+                            <label asp-for="Age" class="form-label">Age</label>
+                            <input asp-for="Age" class="form-control"  />
+                            <span asp-validation-for="Age" class="text-danger"></span>
+
                         </div>
 
                         <button type="submit" class="btn btn-success w-100">
